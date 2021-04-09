@@ -1,3 +1,4 @@
 *.wasm
 janet.html
 janet.js
+*.data

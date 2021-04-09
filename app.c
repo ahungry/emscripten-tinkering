@@ -1,6 +1,8 @@
 #include <janet.h>
 #include <string.h>
 
+#include "sdl2_wrap.c"
+
 int
 run_some_janet ()
 {
@@ -29,6 +31,8 @@ main (int argc, char *argv[])
 
   // const char *embed = "(import ./scripts/app :as app) (app/main 1)";
   const char *embed = "(import ./entry :as app) (app/main 1)";
+
+  janet_cfuns (env, "sdl2", sdl2_cfuns);
 
   janet_dostring (env, embed, "main", NULL);
   janet_deinit();
